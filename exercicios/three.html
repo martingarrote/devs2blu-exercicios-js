@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<title>Exercícios parte 3</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header>
+			<h1 style="text-align: center; font-family:Calibri;">Exercícios parte 3</h1>
+		</header>
+		<main style="padding: 2% 5%;">
+		
+			<form>
+				<label>Nome:</label>
+				<input class="textinput" type="text">
+				
+				<label>Email:</label>
+				<input class="textinput" type="text">
+
+				<div class="radio-div" style="text-align:left">
+					<label class="checkbox">
+						<input type="radio" name="sexo" value="masculino"> Masculino
+					</label>
+					<label class="checkbox">
+						<input type="radio" name="sexo" value="feminino"> Feminino
+					</label>
+				</div>
+				
+				<div>
+					<label for="estado">Estado</label>
+					<select class="select" name="estado" id="estado">
+						<option value="">--</option>
+						<option value="PR">PR</option>
+						<option value="SC">SC</option>
+					</select>
+				</div>
+				
+				<div class="city">
+					<label for="cidade">Cidade</label>
+					<select class="select" name="estado" id="estado">
+						<option value="">--</option>
+						<option value="Curitiba">Curitiba</option>
+						<option value="Blumenau">Blumenau</option>
+					</select>
+				</div>
+				
+				<label>Mensagem:</label>
+				<textarea cols="35" rows="8"></textarea>
+				
+				<label>Newsletter</label>
+				<label>
+					<input type="checkbox" name="newsletter" value="1"> Gostaria de receber a Newsletter da empresa
+				</label>
+				
+				<input class="button" type="submit" value="Enviar">
+			</form>
+			
+		</main>
+	</body>
+</html>
