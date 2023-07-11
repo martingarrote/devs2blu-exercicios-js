@@ -27,7 +27,29 @@ function aplicarDesconto() {
 function numeroPrimo() {
     // Escreva um script que determine se um número é primo
 
+    let numero = Math.abs(prompt("Digite um número"));
+    let resultado;
 
+    if (numero > 1) {
+        let primo = true;
+
+        for (let i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i === 0) {
+                primo = false;
+                break;
+            }
+        }
+
+        if (primo) {
+            resultado = `O número ${numero} é primo.`;
+        } else {
+            resultado = `O número ${numero} não é primo.`;
+        }
+    } else {
+        resultado = `O número ${numero} não é primo.`;
+    }
+
+    alert(resultado);
 }
 
 // Exercício 4
@@ -45,8 +67,8 @@ function formatarTelefone() {
     // Crie um script que solicite um número de telefone ao usuário e 
     // formate-o no formato "(XX) XXXX-XXXX" e exiba o número de telefone formatado.
 
-    let telefone = prompt("Digite um número de telefone sem formatação").trim()
-    let telefoneFormatado = `(${telefone.substring(0, 1)}) ${telefone.substring(2, 7)}-${telefone.substring(7, telefone.length)}`
+    let telefone = prompt("Digite um número de telefone sem formatação").replaceAll(" ", "")
+    let telefoneFormatado = `(${telefone.substring(0, 2)}) ${telefone.substring(2, 7)}-${telefone.substring(7, telefone.length)}`
 
-    alert(telefoneFormatado)
+    alert(`Sem formatação: ${telefone}\nCom formatação: ${telefoneFormatado}`)
 }

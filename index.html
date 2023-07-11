@@ -2,14 +2,90 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Exercicios</title>
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgb(65, 65, 65);
+            color: rgb(240, 240, 240);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px;
+            background-color: black;
+        }
+
+        header h1 {
+            text-align: center;
+        }
+
+        main {
+            text-align: center;
+            margin: auto;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border-color: rgb(150, 150, 150);
+            width: 25%;
+        }
+
+
+        @media (max-width: 700px) {
+            main {
+                font-size: xx-large
+            }
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <li><a href="./exercicios/profile.html">Exercicio profile</a></li>
-        <li><a href="./exercicios/one.html">Exercicio posicionamento div</a></li>
-        <li><a href="./exercicios/two.html">Exercicio botão</a></li>
-        <li><a href="./exercicios/three.html">Exercicio estilizar formulário</a></li>
-    </ul>
+    <header>
+        <h1>Home</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Página Profile</h2>
+            <ul>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </section>
+        <hr>
+        <section>
+            <h2>Exercícios HTML e CSS</h2>
+            <ul>
+                <li><a href="exercicios/profile.html">HTML página profile</a></li>
+                <li><a href="exercicios/one.html">Posicionamento de divs</a></li>
+                <li><a href="exercicios/two.html">Estilização de botões</a></li>
+                <li><a href="exercicios/three.html">Estilização de formulário</a></li>
+            </ul>
+        </section>
+        <hr>
+        <section>
+            <h2>Exercícios JavaScript</h2>
+            <ul>
+                <li><a href="exercicios/js/exercicios_javascript.html">Exercícios</a></li>
+            </ul>
+        </section>
+    </main>
+
 </body>
 </html>
