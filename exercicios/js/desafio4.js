@@ -227,33 +227,40 @@ function contarLetraA() {
 }
 
 // Exercício 14
-// function exibirNumerosPrimosAteCem() {
-//     // (for) Faça um programa que imprima na tela os números primos de 1 a 100.
+function exibirNumerosPrimosAteCem() {
+    // (for) Faça um programa que imprima na tela os números primos de 1 a 100.
     
-//     const numerosPrimos
-
-//     for (i = 1; i <= 100; i++) {
-//         if (i > 1) {
-//             let primo = true;
+    const numerosPrimos = []
+    for (numero = 0; numero < 100; numero++) {
+        if (numero > 1) {
+            let primo = true;
     
-//             for (let i = 2; i <= Math.sqrt(i); i++) {
-//                 if (i % i === 0) {
-//                     primo = false;
-//                     break;
-//                 }
-//             }
+            for (let i = 2; i <= Math.sqrt(numero); i++) {
+                if (numero % i === 0) {
+                    primo = false;
+                }
+            }
     
-//             if (primo) {
-//                 resultado = `O número ${i} é primo.`;
-//             } else {
-//                 resultado = `O número ${i} não é primo.`;
-//             }
-//         } else {
-//             resultado = `O número ${i} não é primo.`;
-//         }
+            if (primo) {
+                numerosPrimos.push(numero)
+            }
+        }
+    }
     
-//         alert(resultado);
-//     }
-// }
+    alert(`De 1 a 100, os seguintes números são primos: ${numerosPrimos.join(", ")}`);
+}
 
 // Exercício 15
+function somarAteCinquenta() {
+    // (while) Escreva um programa que calcule a soma dos números pares de 1 a 50.
+    
+    let numero = 0
+    let soma = 0
+
+    while (numero < 50) {
+        numero++
+        soma += numero;
+    }
+
+    alert(`A soma do número 1 até o número 50 é ${soma}`)
+}
