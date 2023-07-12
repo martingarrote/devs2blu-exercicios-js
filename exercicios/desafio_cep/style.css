@@ -34,22 +34,3 @@ input:focus {
     opacity: 50%;
     cursor: not-allowed;
 }
-
-.button {
-    background-color: rgb(52, 218, 126);
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    margin: 15px 0px 15px 0px;
-    outline: 2px rgb(52, 218, 126) solid;
-    font-weight: bold;
-}
-
-.button:hover {
-    cursor: pointer;
-    opacity: 80%;
-}
-
-.button:active {
-    outline: none;
-}
