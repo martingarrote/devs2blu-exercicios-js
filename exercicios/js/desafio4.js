@@ -151,7 +151,7 @@ function somarVetorInteiros() {
     }
 
     for (num of vetor) {
-        soma += vetor
+        soma += num
     }
 
     alert(`A soma dos vetor de números inteiros aleatórios é equivalente a ${soma}`)
@@ -218,7 +218,7 @@ function contarLetraA() {
     let ocorrencias = 0
 
     for (l of mensagem) {
-        if (mensagem === "a") {
+        if (l.toUpperCase() === "A") {
             ocorrencias++
         }
     }
