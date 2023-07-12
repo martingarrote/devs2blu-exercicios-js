@@ -9,7 +9,7 @@ function calcularMedia() {
     
     let media = (nota1 + nota2 + nota3)/3
     
-    alert(`${nota1} + ${nota2} + ${nota3} = ${media}`)
+    alert(`A média aritmética das notas ${nota1}, ${nota2} e ${nota3} é equivalente a ${media}`)
 }
 
 // Exercicio 2

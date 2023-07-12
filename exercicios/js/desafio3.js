@@ -68,7 +68,12 @@ function formatarTelefone() {
     // formate-o no formato "(XX) XXXX-XXXX" e exiba o número de telefone formatado.
 
     let telefone = prompt("Digite um número de telefone sem formatação").replaceAll(" ", "")
-    let telefoneFormatado = `(${telefone.substring(0, 2)}) ${telefone.substring(2, 7)}-${telefone.substring(7, telefone.length)}`
-
+    let telefoneFormatado
+    if (telefone.length === 11) {
+        telefoneFormatado = `(${telefone.substring(0, 2)}) ${telefone.substring(2, 7)}-${telefone.substring(7, telefone.length)}`
+    } else {
+        telefoneFormatado = `(${telefone.substring(0, 2)}) ${telefone.substring(2, 6)}-${telefone.substring(6, telefone.length)}`
+    }
+    
     alert(`Sem formatação: ${telefone}\nCom formatação: ${telefoneFormatado}`)
 }
