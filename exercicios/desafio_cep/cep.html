@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Consulta de CEP</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Insira o CEP</h2>
+            <input type="text" id="cep" placeholder="CEP">
+
+            <h2>Informações</h2>
+            <input type="text" id="rua" class="visualizar" placeholder="Rua" readonly>
+            <input type="text" id="complemento" class="visualizar" placeholder="Complemento" readonly>
+            <input type="text" id="bairro" class="visualizar" placeholder="Bairro" readonly>
+            <input type="text" id="cidade" class="visualizar" placeholder="Cidade" readonly>
+            <input type="text" id="estado" class="visualizar" placeholder="Estado" readonly>
+
+            <button class="button" id="consultar">Consultar</button>
+        </section>
+    </main>
+</body>
+</html>
