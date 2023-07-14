@@ -17,6 +17,7 @@ main {
     text-align: center;
     width: 75%;
     margin: auto;
+    /* background-color: silver; */
 }
 
 select {
@@ -27,14 +28,23 @@ select {
     border: none;
 }
 
+.countries {
+    display: flex;
+}
+
+.flag {
+    width: 30%;
+}
+
+.info {
+    width: 70%;
+}
+
 select:hover {
     
 }
 
 select:focus {
-}
-
-#countries-info {
 }
 
 img {
