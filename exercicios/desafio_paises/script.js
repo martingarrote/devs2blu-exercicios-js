@@ -2,16 +2,16 @@ let select = document.getElementById("countries-select")
 let flagDiv = document.querySelector(".flag")
 let infoDiv = document.querySelector(".info")
 
-console.log(infoDiv)
-
-fetch(`https://restcountries.com/v3.1/all`)
-    .then(response => response.json())
-    .then(data => {
-        inserirPaisesSelect(data)
-    })
-    .catch(error => {
-        console.log(error)
-    })
+document.addEventListener("DOMContentLoaded", function() {
+    fetch(`https://restcountries.com/v3.1/all`)
+        .then(response => response.json())
+        .then(data => {
+            inserirPaisesSelect(data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+})
     
 select.addEventListener("input", function() {
     let paisSelecionado = identificarPaisSelecionado()
@@ -50,9 +50,8 @@ function coletarDadosPais(pais) {
         removerInformacoes()
 
         let dados = data[0]
-        let img = document.createElement("img")
-        img.src = dados.flags.png
-        flagDiv.append(img)
+        let flag = document.createElement("img")
+        flag.src = dados.flags.png
 
         let linguas = []
         let moedaNome
@@ -76,57 +75,42 @@ function coletarDadosPais(pais) {
         }
 
         const informacoes = {
-            area: dados.area,
-            capital: capital,
-            continente: continente,
-            moeda_nome: moedaNome,
-            moeda_simbolo: moedaSimbolo,
-            linguas: linguas.join(", "),
+            flag: flag,
             nome_usual: dados.name.common,
             nome_oficial: dados.name.official,
+            capital: capital,
+            linguas: linguas.join(", "),
+            continente: continente,
+            area: dados.area,
             populacao: dados.population,
-            regiao: dados.region
+            moeda_nome: moedaNome,
+            moeda_simbolo: moedaSimbolo,
         }
-
-        inserirDadosPais(informacoes)
+        insertCountryData(informacoes)
     })
     .catch(error => {
         console.log(error)
     })
 }
 
-function inserirDadosPais(dados) {
-    for (d in dados) {
-        if (dados[d] === undefined) {
-            dados[d] = "Não possui"
+function insertCountryData(data) {
+    for (d in data) {
+        if (data[d] === undefined || data[d].length < 1) {
+            data[d] = "Não possui"
         }
 
-        p = document.createElement("p")
-        p.innerHTML = `${d}: ${dados[d]}`
-        infoDiv.append(p)
-        console.log(infoDiv)
+        if (data[d] === data.flag) {
+            flagDiv.append(data[d])
+        } else {
+            let p = document.createElement("p");
+            p.id = d
+            p.textContent = data[d];
+            infoDiv.append(p);
+        }
     }
-
 }
 
 function removerInformacoes() {
     flagDiv.innerHTML = ""
     infoDiv.innerHTML = ""
 }
-
-
-/*
-
-Informações para trazer
-area
-capital[0]
-continents[0]
-currencies[0].name
-currencies[0].symbol // adicionar exemplo
-languages
-name.common
-name.official
-population
-region
-
-*/

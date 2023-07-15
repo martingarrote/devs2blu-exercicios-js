@@ -17,7 +17,6 @@ main {
     text-align: center;
     width: 75%;
     margin: auto;
-    /* background-color: silver; */
 }
 
 select {
@@ -29,24 +28,97 @@ select {
 }
 
 .countries {
-    display: flex;
+    margin: auto;
 }
 
-.flag {
-    width: 30%;
+.flag img {
+    margin: auto;
+    border-radius: 20px;
 }
 
 .info {
-    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
 }
 
-select:hover {
-    
+.info p {
+    background-color: white;
+    width: calc(33.33% - 20px);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
 }
 
-select:focus {
+#area::before {
+    content: "Área: ";
+    font-weight: bold;
 }
 
-img {
-    border-radius: 20px;
+#capital::before {
+    content: "Capital: ";
+    font-weight: bold;
+}
+
+#continente::before {
+    content: "Continente: ";
+    font-weight: bold;
+}
+
+#moeda_nome::before {
+    content: "Nome da moeda: ";
+    font-weight: bold;
+}
+
+#moeda_simbolo::before {
+    content: "Símbolo da moeda: ";
+    font-weight: bold;
+}
+
+#linguas::before {
+    content: "Línguas: ";
+    font-weight: bold;
+}
+
+#nome_usual::before {
+    content: "Nome usual: ";
+    font-weight: bold;
+}
+
+#nome_oficial::before {
+    content: "Nome oficial: ";
+    font-weight: bold;
+}
+
+#populacao::before {
+    content: "População: ";
+    font-weight: bold;
+}
+
+#regiao::before {
+    content: "Região: ";
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .countries {
+        display: block;
+    }
+
+    .info p {
+        width: 200px;
+    }
+}
+
+@media (max-width: 450px) {
+    select {
+        width: 250px;
+    }
+
+    img {
+        width: 250px;
+        margin: auto;
+    }
 }
