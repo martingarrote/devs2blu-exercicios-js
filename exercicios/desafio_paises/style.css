@@ -62,43 +62,38 @@ select {
     font-weight: bold;
 }
 
-#continente::before {
+#continent::before {
     content: "Continente: ";
     font-weight: bold;
 }
 
-#moeda_nome::before {
+#currency_name::before {
     content: "Nome da moeda: ";
     font-weight: bold;
 }
 
-#moeda_simbolo::before {
+#currency_symbol::before {
     content: "Símbolo da moeda: ";
     font-weight: bold;
 }
 
-#linguas::before {
+#lang::before {
     content: "Línguas: ";
     font-weight: bold;
 }
 
-#nome_usual::before {
+#usual_name::before {
     content: "Nome usual: ";
     font-weight: bold;
 }
 
-#nome_oficial::before {
+#oficial_name::before {
     content: "Nome oficial: ";
     font-weight: bold;
 }
 
-#populacao::before {
+#population::before {
     content: "População: ";
-    font-weight: bold;
-}
-
-#regiao::before {
-    content: "Região: ";
     font-weight: bold;
 }
 

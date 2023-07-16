@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(`https://restcountries.com/v3.1/all`)
         .then(response => response.json())
         .then(data => {
-            inserirPaisesSelect(data)
+            insertCountryOptions(data)
         })
         .catch(error => {
             console.log(error)
@@ -14,22 +14,22 @@ document.addEventListener("DOMContentLoaded", function() {
 })
     
 select.addEventListener("input", function() {
-    let paisSelecionado = identificarPaisSelecionado()
-    if (paisSelecionado.length > 0) {
-        coletarDadosPais(paisSelecionado)
-    } else {
-        removerInformacoes()
+    let selectedCountry = select.options[select.selectedIndex].text
+    removeCountryData()
+
+    if (selectedCountry.length > 0) {
+        getCountryData(selectedCountry)
     }
 })
 
-function inserirPaisesSelect(dados) {
-    const nomePaises = [];
+function insertCountryOptions(data) {
+    const countryNames = [];
     for (let i = 0; i < 250; i++) {
-        let name = dados[i].name.common;
-        nomePaises.push(name);
+        let name = data[i].name.common;
+        countryNames.push(name);
     }
-    nomePaises.sort();
-    nomePaises.forEach(opt => {
+    countryNames.sort();
+    countryNames.forEach(opt => {
         let option = document.createElement("option");
         option.value = opt;
         option.innerHTML = opt;
@@ -37,56 +37,48 @@ function inserirPaisesSelect(dados) {
     });
 }
 
-function identificarPaisSelecionado() {
-    let pais = select.options[select.selectedIndex].text
-    return pais
-}
-
-function coletarDadosPais(pais) {
-    fetch(`https://restcountries.com/v3.1/name/${pais}?fullText=true`)
+function getCountryData(country) {
+    fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
     .then(response => response.json())
-    .then(data => {
-
-        removerInformacoes()
-
-        let dados = data[0]
+    .then(receivedData => {
+        let data = receivedData[0]
         let flag = document.createElement("img")
-        flag.src = dados.flags.png
+        flag.src = data.flags.png
 
-        let linguas = []
-        let moedaNome
-        let moedaSimbolo
-
+        let lang = []
+        let currencyName
+        let currencySymbol
         let capital
-        if (dados.capital) {
-            capital = dados.capital[0]
+        
+        if (data.capital) {
+            capital = data.capital[0]
         } else {
             capital = "Não possui"
         }
-        let continente = dados.continents[0]
 
-        for (l in dados.languages) {
-            linguas.push(dados.languages[l])
+        for (l in data.languages) {
+            lang.push(data.languages[l])
         }
 
-        for (i in dados.currencies) {
-            moedaNome = dados.currencies[i].name
-            moedaSimbolo = dados.currencies[i].symbol
+        for (i in data.currencies) {
+            currencyName = data.currencies[i].name
+            currencySymbol = data.currencies[i].symbol
         }
 
-        const informacoes = {
+        let countryData = {
             flag: flag,
-            nome_usual: dados.name.common,
-            nome_oficial: dados.name.official,
+            usual_name: data.name.common,
+            oficial_name: data.name.official,
             capital: capital,
-            linguas: linguas.join(", "),
-            continente: continente,
-            area: dados.area,
-            populacao: dados.population,
-            moeda_nome: moedaNome,
-            moeda_simbolo: moedaSimbolo,
+            lang: lang.join(", "),
+            continent: data.continents[0],
+            area: data.area,
+            population: data.population,
+            currency_name: currencyName,
+            currency_symbol: currencySymbol,
         }
-        insertCountryData(informacoes)
+
+        insertCountryData(countryData)
     })
     .catch(error => {
         console.log(error)
@@ -110,7 +102,7 @@ function insertCountryData(data) {
     }
 }
 
-function removerInformacoes() {
+function removeCountryData() {
     flagDiv.innerHTML = ""
     infoDiv.innerHTML = ""
 }
