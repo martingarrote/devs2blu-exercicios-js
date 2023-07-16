@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
     
 select.addEventListener("input", function() {
     let selectedCountry = select.options[select.selectedIndex].text
-    removeCountryData()
-
     if (selectedCountry.length > 0) {
         getCountryData(selectedCountry)
+    } else {
+        removeCountryData()
     }
 })
 
@@ -49,7 +49,7 @@ function getCountryData(country) {
         let currencyName
         let currencySymbol
         let capital
-        
+
         if (data.capital) {
             capital = data.capital[0]
         } else {
@@ -86,6 +86,7 @@ function getCountryData(country) {
 }
 
 function insertCountryData(data) {
+    removeCountryData()
     for (d in data) {
         if (data[d] === undefined || data[d].length < 1) {
             data[d] = "Não possui"
