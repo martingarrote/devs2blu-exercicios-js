@@ -43,6 +43,7 @@ function getCountryData(country) {
     .then(receivedData => {
         let data = receivedData[0]
         let flag = document.createElement("img")
+
         flag.src = data.flags.png
 
         let lang = []
@@ -72,7 +73,7 @@ function getCountryData(country) {
             capital: capital,
             lang: lang.join(", "),
             continent: data.continents[0],
-            area: data.area,
+            area: data.area += " km²",
             population: data.population,
             currency_name: currencyName,
             currency_symbol: currencySymbol,
@@ -87,6 +88,9 @@ function getCountryData(country) {
 
 function insertCountryData(data) {
     removeCountryData()
+
+    document.querySelectorAll("h2")[1].style.display = "block"
+
     for (d in data) {
         if (data[d] === undefined || data[d].length < 1) {
             data[d] = "Não possui"
@@ -104,6 +108,7 @@ function insertCountryData(data) {
 }
 
 function removeCountryData() {
+    document.querySelectorAll("h2")[1].style.display = "none"
     flagDiv.innerHTML = ""
     infoDiv.innerHTML = ""
 }
